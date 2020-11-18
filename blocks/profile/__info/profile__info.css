@@ -1,4 +1,12 @@
 .profile__info {
     margin: 0;
     margin-left: 30px;
+    align-self: center;
+    flex-grow: 1;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .profile__info {
+        margin-left: 0;
+    }
 }

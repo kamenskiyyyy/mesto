@@ -5,6 +5,18 @@
 
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;    
+}
 
+@media (max-width: 768px) {
+    .profile {
+        max-width: 734px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .profile {
+        max-width: 282px;
+        flex-direction: column;
+    }
 }
