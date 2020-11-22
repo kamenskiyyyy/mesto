@@ -1,4 +1,4 @@
-.profile__decs {
+.profile__job {
     margin: 0;
     margin-top: 6px;
     font-size: 18px;
@@ -6,7 +6,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .profile__decs {
+    .profile__job {
         margin-top: 8px;
         font-size: 14px;
         line-height: 17px;

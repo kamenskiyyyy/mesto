@@ -12,3 +12,11 @@
 .form__button:hover, .form__button:focus, .form__button:active {
     opacity: .8;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .form__button {
+        margin-top: 45px;
+        width: 238px;
+        height: 46px;
+    }
+}

@@ -1,4 +1,4 @@
-.profile__add {
+.profile__add-button {
     width: 150px;
     height: 50px;
     border: 1px solid #FFFFFF;
@@ -9,12 +9,12 @@
     transition: opacity .2s linear;
 }
 
-.profile__add:hover, .profile__add:focus, .profile__add:active {
+.profile__add-button:hover, .profile__add-button:focus, .profile__add-button:active {
     opacity: .6;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .profile__add {
+    .profile__add-button {
         width: 282px;
         margin-top: 36px;
     }

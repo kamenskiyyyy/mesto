@@ -1,3 +1,12 @@
+.header__logo {
+    transition: opacity .2s linear;
+}
+
+.header__logo:hover, .header__logo:focus, .header__logo:active {
+    opacity: .8;
+}
+
+
 @media (min-width: 320px) and (max-width: 767px) {
     .header__logo {
         margin-left: 27px;
