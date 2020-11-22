@@ -1,5 +1,11 @@
 .header__hr {
-    margin-top: 41px;
+    margin-top: 37px;
     border-bottom: 1px solid #545454;
     opacity: .7;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .header__hr {
+        margin-top: 28px;
+    }
 }
