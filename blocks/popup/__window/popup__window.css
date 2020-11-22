@@ -1,0 +1,10 @@
+.popup__window {
+    min-width: 358px;
+    min-height: 258px;
+
+    padding: 36px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+}

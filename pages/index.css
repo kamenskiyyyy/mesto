@@ -33,3 +33,14 @@
 /* Footer style */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* Popup style */
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__view/popup__view.css);
+@import url(../blocks/popup/__window/popup__window.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__name/form__name.css);
+@import url(../blocks/form/__decs/form__decs.css);
+@import url(../blocks/form/__button/form__button.css);

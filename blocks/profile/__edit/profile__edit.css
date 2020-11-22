@@ -7,6 +7,12 @@
     border: 1px solid #FFFFFF;
 
     background: url(../../../images/pensil.svg) no-repeat center;
+    cursor: pointer;
+    transition: opacity .2s linear;
+}
+
+.profile__edit:hover, .profile__edit:focus, .profile__edit:active {
+    opacity: .6;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
