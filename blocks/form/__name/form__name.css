@@ -9,6 +9,5 @@
 @media (min-width: 320px) and (max-width: 767px) {
     .form__name {
         width: 238px;
-        height: 27px;
     }
 }

@@ -4,10 +4,3 @@
     align-items: center;
     justify-content: space-between;
 }
-
-@media (min-width: 320px) and (max-width: 767px) {
-    .element__decs {
-        margin: 21px 16px 26px 21px;
-    }
-
-}

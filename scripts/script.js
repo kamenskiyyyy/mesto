@@ -8,21 +8,23 @@ let formNode = document.querySelector('.form');
 let nameInput = document.querySelector('.form__name');
 let jobInput = document.querySelector('.form__job');
 
-profileEditButtonNode.addEventListener('click', togglePopupVisibility);
-popupCloseButtonNode.addEventListener('click', togglePopupVisibility);
-
-function togglePopupVisibility() {
-    popupNode.classList.toggle('popup__view');
-    
+function openPopupVisibility() {
+    popupNode.classList.add('popup__view');
+    nameInput.value = profileNameNode.textContent;
+    jobInput.value = profileJobNode.textContent;
 }
 
-formNode.addEventListener('submit', formSubmitHandler);
-
-nameInput.value = profileNameNode.textContent;
-jobInput.value = profileJobNode.textContent;
+function closePopupVisibility() {
+    popupNode.classList.remove('popup__view');
+}
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
+    // сделать закрытие попапа по нажатию кнопки
 }
+
+profileEditButtonNode.addEventListener('click', openPopupVisibility);
+popupCloseButtonNode.addEventListener('click', closePopupVisibility);
+formNode.addEventListener('submit', formSubmitHandler);
