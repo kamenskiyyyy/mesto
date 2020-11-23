@@ -1,6 +1,7 @@
 let profileEditButtonNode = document.querySelector('.profile__edit-button');
 let popupNode = document.querySelector('.popup');
 let popupCloseButtonNode = document.querySelector('.popup__close-button');
+let popupSaveButtonNode = document.querySelector('.form__button');
 
 let profileNameNode = document.querySelector('.profile__name');
 let profileJobNode = document.querySelector('.profile__job');
@@ -22,9 +23,9 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
-    // сделать закрытие попапа по нажатию кнопки
 }
 
 profileEditButtonNode.addEventListener('click', openPopupVisibility);
 popupCloseButtonNode.addEventListener('click', closePopupVisibility);
 formNode.addEventListener('submit', formSubmitHandler);
+popupSaveButtonNode.addEventListener('click', closePopupVisibility);
