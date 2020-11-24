@@ -23,9 +23,9 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
+    closePopupVisibility();
 }
 
 profileEditButtonNode.addEventListener('click', openPopupVisibility);
 popupCloseButtonNode.addEventListener('click', closePopupVisibility);
 formNode.addEventListener('submit', formSubmitHandler);
-popupSaveButtonNode.addEventListener('click', closePopupVisibility);
