@@ -24,10 +24,12 @@
 /* Elements style */
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/element/__trash-button/element__trash-button.css);
 @import url(../blocks/element/__img/element__img.css);
 @import url(../blocks/element/__decs/element__decs.css);
 @import url(../blocks/element/__name/element__name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
+@import url(../blocks/element/__like-button/-active/element__like-button-active.css);
 
 /* Footer style */
 @import url(../blocks/footer/footer.css);
