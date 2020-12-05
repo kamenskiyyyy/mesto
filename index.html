@@ -71,14 +71,36 @@
     <footer class="footer">
         <p class="footer__copyright">© 2020 Каменев Николай</p>
     </footer>
+
+    <template class="template">
+        <div class="element">
+            <img src="./images/dombai.jpg" alt="Картинка" class="element__img">
+            <div class="element__decs">
+                <h2 class="element__name"></h2>
+                <button type="button" class="element__like-button"></button>
+            </div> 
+        </div>
+    </template>
     
-    <div class="popup">
+    <div class="popup profile-edit">
         <div class="popup__window">
             <button type="button" class="popup__close-button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form name="form" class="form">
                 <input name="form__name" type="text" class="form__name">
                 <input name="form__job" type="text" class="form__job">
+                <button type="submit" class="form__button">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup new-element">
+        <div class="popup__window">
+            <button type="button" class="popup__close-button-elem"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form name="form" class="form">
+                <input name="form__title" type="text" class="form__title">
+                <input name="form__url" type="text" class="form__url">
                 <button type="submit" class="form__button">Сохранить</button>
             </form>
         </div>
