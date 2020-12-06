@@ -32,7 +32,7 @@
     <template class="template">
         <div class="element">
             <button type="button" class="element__trash-button"></button>
-            <a href="#!"><img src="./" alt="." class="element__img"></a>
+            <a class="element__img-open-full" href="#" target="_self"><img src="./" alt="." class="element__img"></a>
             <div class="element__decs">
                 <h2 class="element__name"></h2>
                 <button id="like-button" type="button" class="element__like-button"></button>
@@ -64,11 +64,11 @@
         </div>
     </div>
 
-    <div class="popup img-link">
+    <div class="popup img-full">
         <div class="popup__image-full">
             <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="." class="popup__img">
-            <button type="button" class="popup__close-button-elem"></button>
-            <h2 class="popup__title-img">Новое место</h2>
+            <button type="button" class="popup__close-button-image"></button>
+            <h2 class="popup__title-img"></h2>
         </div>
     </div>
     <script src="./scripts/script.js"></script>

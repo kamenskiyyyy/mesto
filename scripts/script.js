@@ -2,8 +2,10 @@ let profileEditButtonNode = document.querySelector('.profile__edit-button');
 let elementAddButtonNode = document.querySelector('.profile__add-button');
 let popupEditNode = document.querySelector('.profile-edit');
 let popupNewElementNode = document.querySelector('.new-element');
+let popupImageNode = document.querySelector('.img-full');
 let popupCloseButtonNode = document.querySelector('.popup__close-button');
 let popupNewElementCloseButtonNode = document.querySelector('.popup__close-button-elem');
+let popupImageBodeCloseButton = document.querySelector('.popup__close-button-image');
 let popupSaveButtonNode = document.querySelector('.form__button');
 
 let profileNameNode = document.querySelector('.profile__name');
@@ -65,6 +67,8 @@ function composeItem({name, link, alt}){
     urlElement.src = link;
     const altElement = newItem.querySelector('.element__img');
     altElement.alt = alt;
+    const dataElement = newItem.querySelector('.element__img');
+    dataElement.data = name;
     removeAndLikeAddElementCard(newItem);
     return newItem;
 };
@@ -95,17 +99,19 @@ function formSubmitHandler(evt) {
     closePopupVisibility();
 };
 
-function removeAndLikeAddElementCard(item){
-    const removeButton = item.querySelector('.element__trash-button');
+function removeAndLikeAddElementCard(evt){
+    const removeButton = evt.querySelector('.element__trash-button');
     removeButton.addEventListener('click', removeItem);
-    const likeButton = item.querySelector('.element__like-button');
+    const likeButton = evt.querySelector('.element__like-button');
     likeButton.addEventListener('click', likeItem);
-}
+    const openImageButton = evt.querySelector('.element__img-open-full');
+    openImageButton.addEventListener('click', openImagePopup);
+};
 
 function bindAddItemElement() {
     const addButtonElement = document.querySelector('#form__button-add');
     addButtonElement.addEventListener('click', addNewItem);
-}
+};
 
 function addNewItem(evt){
     evt.preventDefault();
@@ -116,16 +122,29 @@ function addNewItem(evt){
     titleInput.value = '';
     urlInput.value = '';
     closePopupAddElementVisibility();
-}
+};
 
-function removeItem(event){
-    const targetItem = event.target.closest('.element');
+function removeItem(evt){
+    const targetItem = evt.target.closest('.element');
     targetItem.remove();
-}
+};
 
-function likeItem(event) {
-    const targetItem = event.target.closest('.element__like-button');
+function likeItem(evt) {
+    const targetItem = evt.target.closest('.element__like-button');
     targetItem.classList.toggle('element__like-button-active');
+};
+
+function openImagePopup(evt){
+    popupImageNode.classList.add('popup__view');
+    const popupImage = document.querySelector('.popup__img');
+    popupImage.src = evt.target.src;
+    popupImage.alt = evt.target.alt;
+    const popupTitle = document.querySelector('.popup__title-img');
+    popupTitle.textContent = evt.target.data;
+};
+
+function closeImagePopup(evt){
+    popupImageNode.classList.remove('popup__view');
 }
 
 profileEditButtonNode.addEventListener('click', openPopupEditProfileVisibility);
@@ -133,6 +152,7 @@ popupCloseButtonNode.addEventListener('click', closePopupVisibility);
 formNode.addEventListener('submit', formSubmitHandler);
 elementAddButtonNode.addEventListener('click', openPopupAddElementVisibility);
 popupNewElementCloseButtonNode.addEventListener('click', closePopupAddElementVisibility);
+popupImageBodeCloseButton.addEventListener('click', closeImagePopup);
 
 
 renderElements();
