@@ -63,6 +63,15 @@ function functionalCardElementListener(evt){
     openImageButton.addEventListener('click', openImagePopup);
 };
 
+function functionalElementCardListener(item){
+    const removeButton = item.querySelector('.element__trash-button');
+    removeButton.addEventListener('click', removeItem);
+    const likeButton = item.querySelector('.element__like-button');
+    likeButton.addEventListener('click', likeItem);
+    const openImageButton = item.querySelector('.element__img-open-full');
+    openImageButton.addEventListener('click', openImagePopup);
+};
+
 function composeItem({name, link, alt}){
     const newItem = templateElement.content.cloneNode(true);
     const neaderElement = newItem.querySelector('.element__name');
@@ -152,6 +161,7 @@ formNode.addEventListener('submit', formSubmitHandler);
 elementAddButtonNode.addEventListener('click', openPopupAddElementVisibility);
 popupNewElementCloseButtonNode.addEventListener('click', closePopupAddElementVisibility);
 popupImageBodeCloseButton.addEventListener('click', closeImagePopup);
+
 
 
 renderElements();
