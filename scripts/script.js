@@ -54,11 +54,6 @@ const initialCards = [
     }
 ];
 
-function renderElements() {
-    const elementCard = initialCards.map(composeItem);
-    elementsConteiner.append(...elementCard);
-};
-
 function composeItem({name, link, alt}){
     const newItem = templateElement.content.cloneNode(true);
     const neaderElement = newItem.querySelector('.element__name');
@@ -73,6 +68,10 @@ function composeItem({name, link, alt}){
     return newItem;
 };
 
+function renderElements() {
+    const elementCard = initialCards.map(composeItem);
+    elementsConteiner.append(...elementCard);
+};
 
 function openPopupEditProfileVisibility() {
     popupEditNode.classList.add('popup__view');
