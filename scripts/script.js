@@ -1,22 +1,22 @@
-let profileEditButtonNode = document.querySelector('.profile__edit-button');
-let elementAddButtonNode = document.querySelector('.profile__add-button');
-let popupEditNode = document.querySelector('.profile-edit');
-let popupNewElementNode = document.querySelector('.new-element');
-let popupImageNode = document.querySelector('.img-full');
-let popupCloseButtonNode = document.querySelector('.popup__close-button');
-let popupNewElementCloseButtonNode = document.querySelector('.popup__close-button-elem');
-let popupImageBodeCloseButton = document.querySelector('.popup__close-button-image');
-let popupSaveButtonNode = document.querySelector('.form__button');
+const profileEditButtonNode = document.querySelector('.profile__edit-button');
+const elementAddButtonNode = document.querySelector('.profile__add-button');
+const popupEditNode = document.querySelector('.profile-edit');
+const popupNewElementNode = document.querySelector('.new-element');
+const popupImageNode = document.querySelector('.img-full');
+const popupCloseButtonNode = document.querySelector('.popup__close-button');
+const popupNewElementCloseButtonNode = document.querySelector('.popup__close-button-elem');
+const popupImageBodeCloseButton = document.querySelector('.popup__close-button-image');
+const popupSaveButtonNode = document.querySelector('.form__button');
 
-let profileNameNode = document.querySelector('.profile__name');
-let profileJobNode = document.querySelector('.profile__job');
-let formNode = document.querySelector('.form');
-let nameInput = document.querySelector('.form__name');
-let jobInput = document.querySelector('.form__job');
+const profileNameNode = document.querySelector('.profile__name');
+const profileJobNode = document.querySelector('.profile__job');
+const formNode = document.querySelector('.form');
+const nameInput = document.querySelector('.form__name');
+const jobInput = document.querySelector('.form__job');
 
 const elementsConteiner = document.querySelector('.elements');
-let elementNameNode = document.querySelector('.element__name');
-let elementUrlNode = document.querySelector('.element__img');
+const elementNameNode = document.querySelector('.element__name');
+const elementUrlNode = document.querySelector('.element__img');
 const titleInput = document.querySelector('.form__title');
 const urlInput = document.querySelector('.form__url');
 const templateElement = document.querySelector('.template');
@@ -59,6 +59,15 @@ function renderElements() {
     elementsConteiner.append(...elementCard);
 };
 
+function functionalElementCardListener(item){
+    const removeButton = item.querySelector('.element__trash-button');
+    removeButton.addEventListener('click', removeItem);
+    const likeButton = item.querySelector('.element__like-button');
+    likeButton.addEventListener('click', likeItem);
+    const openImageButton = item.querySelector('.element__img-open-full');
+    openImageButton.addEventListener('click', openImagePopup);
+};
+
 function composeItem({name, link, alt}){
     const newItem = templateElement.content.cloneNode(true);
     const neaderElement = newItem.querySelector('.element__name');
@@ -69,7 +78,7 @@ function composeItem({name, link, alt}){
     altElement.alt = alt;
     const dataElement = newItem.querySelector('.element__img');
     dataElement.data = name;
-    removeAndLikeAddElementCard(newItem);
+    functionalElementCardListener(newItem);
     return newItem;
 };
 
@@ -97,15 +106,6 @@ function formSubmitHandler(evt) {
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
     closePopupVisibility();
-};
-
-function removeAndLikeAddElementCard(evt){
-    const removeButton = evt.querySelector('.element__trash-button');
-    removeButton.addEventListener('click', removeItem);
-    const likeButton = evt.querySelector('.element__like-button');
-    likeButton.addEventListener('click', likeItem);
-    const openImageButton = evt.querySelector('.element__img-open-full');
-    openImageButton.addEventListener('click', openImagePopup);
 };
 
 function bindAddItemElement() {
@@ -153,6 +153,7 @@ formNode.addEventListener('submit', formSubmitHandler);
 elementAddButtonNode.addEventListener('click', openPopupAddElementVisibility);
 popupNewElementCloseButtonNode.addEventListener('click', closePopupAddElementVisibility);
 popupImageBodeCloseButton.addEventListener('click', closeImagePopup);
+
 
 
 renderElements();
