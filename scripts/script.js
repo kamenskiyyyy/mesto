@@ -162,8 +162,6 @@ elementAddButtonNode.addEventListener('click', openPopupAddElementVisibility);
 popupNewElementCloseButtonNode.addEventListener('click', closePopupAddElementVisibility);
 popupImageBodeCloseButton.addEventListener('click', closeImagePopup);
 
-
-
 renderElements();
 bindAddItemElement();
 
