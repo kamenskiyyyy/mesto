@@ -3,9 +3,6 @@ const elementAddButtonNode = document.querySelector('.profile__add-button');
 const popupEditNode = document.querySelector('.profile-edit');
 const popupNewElementNode = document.querySelector('.new-element');
 const popupImageNode = document.querySelector('.img-full');
-const popupCloseButtonNode = document.querySelector('.popup__close-button');
-const popupNewElementCloseButtonNode = document.querySelector('.popup__close-button-elem');
-const popupImageBodeCloseButton = document.querySelector('.popup__close-button-image');
 const popupSaveButtonNode = document.querySelector('.form__button');
 
 const profileNameNode = document.querySelector('.profile__name');
@@ -20,6 +17,12 @@ const elementUrlNode = document.querySelector('.element__img');
 const titleInput = document.querySelector('.form__title');
 const urlInput = document.querySelector('.form__url');
 const templateElement = document.querySelector('.template');
+
+
+const popupCloseButtonNode = document.querySelector('#close_profile_edit');
+const popupNewElementCloseButtonNode = document.querySelector('#close_new_element');
+const popupImageBodeCloseButton = document.querySelector('#close_img_full');
+const popupObertka = document.querySelector('.popup__close-button');
 
 const initialCards = [
     {
@@ -54,15 +57,6 @@ const initialCards = [
     }
 ];
 
-function functionalCardElementListener(evt){
-    const removeButton = evt.querySelector('.element__trash-button');
-    removeButton.addEventListener('click', removeItem);
-    const likeButton = evt.querySelector('.element__like-button');
-    likeButton.addEventListener('click', likeItem);
-    const openImageButton = evt.querySelector('.element__img-open-full');
-    openImageButton.addEventListener('click', openImagePopup);
-};
-
 function functionalElementCardListener(item){
     const removeButton = item.querySelector('.element__trash-button');
     removeButton.addEventListener('click', removeItem);
@@ -82,7 +76,7 @@ function composeItem({name, link, alt}){
     altElement.alt = alt;
     const dataElement = newItem.querySelector('.element__img');
     dataElement.data = name;
-    functionalCardElementListener(newItem);
+    functionalElementCardListener(newItem);
     return newItem;
 };
 
@@ -155,12 +149,19 @@ function closeImagePopup() {
     popupImageNode.classList.remove('popup__view');
 };
 
+// function closePopapNewVersion(event) {
+//     if (event.target === classList('popup__close-button')) {
+//         event.closest.classList.remove('popup__view');
+//     }
+// }
+
 profileEditButtonNode.addEventListener('click', openPopupEditProfileVisibility);
 popupCloseButtonNode.addEventListener('click', closePopupVisibility);
 formNode.addEventListener('submit', formSubmitHandler);
 elementAddButtonNode.addEventListener('click', openPopupAddElementVisibility);
 popupNewElementCloseButtonNode.addEventListener('click', closePopupAddElementVisibility);
 popupImageBodeCloseButton.addEventListener('click', closeImagePopup);
+// popupObertka.addEventListener('click', closePopapNewVersion);
 
 renderElements();
 bindAddItemElement();
