@@ -1,13 +1,13 @@
 function showError(form, input, config) {
     const error = form.querySelector(`#${input.id}-error`);
     error.textContent = input.validationMessage;
-    input.classList.add(config.inputInvalidClass);
+    input.classList.add(config.inputErrorClass);
 };
 
 function hideError(form, input, config) {
     const error = form.querySelector(`#${input.id}-error`);
     error.textContent = '';
-    input.classList.remove(config.inputInvalidClass);
+    input.classList.remove(config.inputErrorClass);
 };
 
 function checkInputValidity(form, input, config) {
@@ -20,10 +20,10 @@ function checkInputValidity(form, input, config) {
 
 function setButtonState(button, isActive, config) {
     if (isActive) {
-        button.classList.remove(config.buttonInvalidClass);
+        button.classList.remove(config.inactiveButtonClass);
         button.disabled = false;
     } else {
-        button.classList.add(config.buttonInvalidClass);
+        button.classList.add(config.inactiveButtonClass);
         button.disabled = true; 
     };
 };
@@ -47,7 +47,6 @@ function enableValidation(config) {
 
         form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            console.log('отправка формы');
         });
 
         const submitButton = form.querySelector(config.submitButtonSelector);
@@ -55,12 +54,10 @@ function enableValidation(config) {
     });
 };
 
-const validationConfig = {
+enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
-    inputInvalidClass: 'popup__input_state_invalid',
-    buttonInvalidClass: 'popup__button_invalid', 
-};
-
-enableValidation(validationConfig);
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__input_state_invalid',
+  }); 
