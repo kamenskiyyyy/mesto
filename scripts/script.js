@@ -3,6 +3,8 @@ const elementAddButtonNode = document.querySelector('.profile__add-button');
 const popupEditNode = document.querySelector('#profile-edit');
 const popupNewElementNode = document.querySelector('#new-element');
 const popupImageNode = document.querySelector('#img-full');
+const root = document.querySelector('.root');
+const popupList = document.querySelectorAll('.popup');
 
 const profileNameNode = document.querySelector('.profile__name');
 const profileJobNode = document.querySelector('.profile__job');
@@ -82,6 +84,7 @@ function renderElements() {
 
 function openPopup(popup) {
     popup.classList.add('popup__view');
+    document.addEventListener('keydown', closePopupEsc);
 }
 
 function closePopup(popup) {
@@ -92,6 +95,7 @@ function openPopupEditProfileVisibility(popup) {
     popup.classList.add('popup__view');
     nameInput.value = profileNameNode.textContent;
     jobInput.value = profileJobNode.textContent;
+    document.addEventListener('keydown', closePopupEsc);
 };
 
 function formSubmitHandler(evt) {
@@ -134,7 +138,26 @@ function openImagePopup(evt) {
     popupImage.alt = evt.target.alt;
     const popupTitle = document.querySelector('.popup__title-img');
     popupTitle.textContent = evt.target.data;
+    document.addEventListener('keydown', closePopupEsc);
 };
+
+function closePopupClickOvarlay(evt) {
+    const closeClick = evt.target;
+    if (closeClick.classList.contains('popup')) {
+        closeClick.closest('.popup').classList.remove('popup__view');
+    };
+};
+
+function closePopupEsc(evt) {
+    if (evt.key === 'Escape') { 
+        for (let i = 0; i < popupList.length; i++) {
+            if (popupList[i].classList.contains('popup')) {
+                popupList[i].classList.remove('popup__view');
+            }
+        }
+    document.removeEventListener('keydown', closePopupEsc);
+    }
+}; 
 
 formNode.addEventListener('submit', formSubmitHandler);
 profileEditButtonNode.addEventListener('click', () => openPopupEditProfileVisibility(popupEditNode));
@@ -142,6 +165,7 @@ popupCloseButtonNode.addEventListener('click', () => closePopup(popupEditNode));
 elementAddButtonNode.addEventListener('click', () => openPopup(popupNewElementNode));
 popupNewElementCloseButtonNode.addEventListener('click', () => closePopup(popupNewElementNode));
 popupImageBodeCloseButton.addEventListener('click', () => closePopup(popupImageNode));
+root.addEventListener('click', closePopupClickOvarlay);
 
 renderElements();
 bindAddItemElement();
