@@ -5,6 +5,8 @@ const popupNewElementNode = document.querySelector('#new-element');
 const popupImageNode = document.querySelector('#img-full');
 const root = document.querySelector('.root');
 const popupList = document.querySelectorAll('.popup');
+const popupImage = document.querySelector('.popup__img');
+const popupTitle = document.querySelector('.popup__title-img');
 
 const profileNameNode = document.querySelector('.profile__name');
 const profileJobNode = document.querySelector('.profile__job');
@@ -21,39 +23,6 @@ const popupCloseButtonNode = document.querySelector('#close_profile_edit');
 const popupNewElementCloseButtonNode = document.querySelector('#close_new_element');
 const popupImageBodeCloseButton = document.querySelector('#close_img_full');
 
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-        alt: 'Архыз'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-        alt: 'Челябинская область'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-        alt: 'Иваново'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-        alt: 'Камчатка'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-        alt: 'Холмогорский район'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-        alt: 'Байкал'
-    }
-];
-
 function functionalElementCardListener(item){
     const removeButton = item.querySelector('.element__trash-button');
     removeButton.addEventListener('click', removeItem);
@@ -67,12 +36,10 @@ function composeItem({name, link, alt}){
     const newItem = templateElement.content.cloneNode(true);
     const neaderElement = newItem.querySelector('.element__name');
     neaderElement.textContent = name;
-    const urlElement = newItem.querySelector('.element__img');
-    urlElement.src = link;
-    const altElement = newItem.querySelector('.element__img');
-    altElement.alt = alt;
-    const dataElement = newItem.querySelector('.element__img');
-    dataElement.data = name;
+    const imgElement = newItem.querySelector('.element__img');
+    imgElement.src = link;
+    imgElement.alt = alt;
+    imgElement.data = name; // необходимо для описания картинки в попапе
     functionalElementCardListener(newItem);
     return newItem;
 };
@@ -89,13 +56,13 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup__view');
+    document.removeEventListener('keydown', closePopupEsc);
 }
 
 function openPopupEditProfileVisibility(popup) {
-    popup.classList.add('popup__view');
+    openPopup(popup);
     nameInput.value = profileNameNode.textContent;
     jobInput.value = profileJobNode.textContent;
-    document.addEventListener('keydown', closePopupEsc);
 };
 
 function formSubmitHandler(evt) {
@@ -133,10 +100,8 @@ function likeItem(evt) {
 
 function openImagePopup(evt) {
     popupImageNode.classList.add('popup__view');
-    const popupImage = document.querySelector('.popup__img');
     popupImage.src = evt.target.src;
     popupImage.alt = evt.target.alt;
-    const popupTitle = document.querySelector('.popup__title-img');
     popupTitle.textContent = evt.target.data;
     document.addEventListener('keydown', closePopupEsc);
 };
