@@ -86,6 +86,7 @@ function addNewItem(evt) {
     titleInput.value = '';
     urlInput.value = '';
     closePopup(popupNewElementNode);
+    
 };
 
 function removeItem(evt) {
@@ -99,10 +100,10 @@ function likeItem(evt) {
 };
 
 function openImagePopup(evt) {
-    popupImageNode.classList.add('popup__view');
     popupImage.src = evt.target.src;
     popupImage.alt = evt.target.alt;
     popupTitle.textContent = evt.target.data;
+    openPopup(popupImageNode);
     document.addEventListener('keydown', closePopupEsc);
 };
 
@@ -113,16 +114,20 @@ function closePopupClickOvarlay(evt) {
     };
 };
 
+// function closePopupEsc(evt) {
+//     if (evt.key === 'Escape') {
+//         closePopup(popupEditNode);
+//         closePopup(popupNewElementNode);
+//         closePopup(popupImageNode);
+//     document.removeEventListener('keydown', closePopupEsc);
+//     };
+// };
+
 function closePopupEsc(evt) {
-    if (evt.key === 'Escape') { 
-        for (let i = 0; i < popupList.length; i++) {
-            if (popupList[i].classList.contains('popup')) {
-                popupList[i].classList.remove('popup__view');
-            }
-        }
-    document.removeEventListener('keydown', closePopupEsc);
-    }
-}; 
+    if (evt.key === 'Escape') {
+        closePopup(document.querySelector('.popup__view'));
+    };
+};
 
 formNode.addEventListener('submit', formSubmitHandler);
 profileEditButtonNode.addEventListener('click', () => openPopupEditProfileVisibility(popupEditNode));
