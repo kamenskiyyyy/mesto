@@ -114,15 +114,6 @@ function closePopupClickOvarlay(evt) {
     };
 };
 
-// function closePopupEsc(evt) {
-//     if (evt.key === 'Escape') {
-//         closePopup(popupEditNode);
-//         closePopup(popupNewElementNode);
-//         closePopup(popupImageNode);
-//     document.removeEventListener('keydown', closePopupEsc);
-//     };
-// };
-
 function closePopupEsc(evt) {
     if (evt.key === 'Escape') {
         closePopup(document.querySelector('.popup__view'));
