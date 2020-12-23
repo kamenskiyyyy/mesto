@@ -104,7 +104,6 @@ function openImagePopup(evt) {
     popupImage.alt = evt.target.alt;
     popupTitle.textContent = evt.target.data;
     openPopup(popupImageNode);
-    document.addEventListener('keydown', closePopupEsc);
 };
 
 function closePopupClickOvarlay(evt) {
