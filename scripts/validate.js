@@ -50,7 +50,7 @@ function enableValidation(config) {
         });
 
         const submitButton = form.querySelector(config.submitButtonSelector);
-        setButtonState(submitButton, form.checkValidity(), config)
+        setButtonState(submitButton, form.checkValidity(), config);
     });
 };
 
@@ -59,5 +59,13 @@ enableValidation({
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_state_invalid',
+    inputErrorClass: 'popup__input_state_invalid'
   }); 
+
+const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__input_state_invalid'
+};
