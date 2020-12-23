@@ -25,7 +25,7 @@ const popupCloseButtonNode = document.querySelector('#close_profile_edit');
 const popupNewElementCloseButtonNode = document.querySelector('#close_new_element');
 const popupImageBodeCloseButton = document.querySelector('#close_img_full');
 
-function functionalElementCardListener(item){
+function setCardEventListeners(item){
     const removeButton = item.querySelector('.element__trash-button');
     removeButton.addEventListener('click', removeItem);
     const likeButton = item.querySelector('.element__like-button');
@@ -42,7 +42,7 @@ function composeItem({name, link, alt}){
     imgElement.src = link;
     imgElement.alt = alt;
     imgElement.data = name; // необходимо для описания картинки в попапе
-    functionalElementCardListener(newItem);
+    setCardEventListeners(newItem);
     return newItem;
 };
 
@@ -67,7 +67,7 @@ function openPopupEditProfileVisibility(popup) {
     jobInput.value = profileJobNode.textContent;
 };
 
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
@@ -110,7 +110,7 @@ function openImagePopup(evt) {
 function closePopupClickOvarlay(evt) {
     const closeClick = evt.target;
     if (closeClick.classList.contains('popup')) {
-        closeClick.closest('.popup').classList.remove('popup__view');
+        closePopup(document.querySelector('.popup__view'));
     };
 };
 
@@ -120,7 +120,7 @@ function closePopupEsc(evt) {
     };
 };
 
-formNode.addEventListener('submit', formSubmitHandler);
+formNode.addEventListener('submit', handleProfileFormSubmit);
 profileEditButtonNode.addEventListener('click', () => openPopupEditProfileVisibility(popupEditNode));
 popupCloseButtonNode.addEventListener('click', () => closePopup(popupEditNode));
 elementAddButtonNode.addEventListener('click', () => { 
