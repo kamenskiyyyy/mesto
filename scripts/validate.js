@@ -2,21 +2,21 @@ function showError(form, input, config) {
     const error = form.querySelector(`#${input.id}-error`);
     error.textContent = input.validationMessage;
     input.classList.add(config.inputErrorClass);
-};
+}
 
 function hideError(form, input, config) {
     const error = form.querySelector(`#${input.id}-error`);
     error.textContent = '';
     input.classList.remove(config.inputErrorClass);
-};
+}
 
 function checkInputValidity(form, input, config) {
     if (!input.validity.valid) {
         showError(form, input, config);
     } else {
         hideError(form, input, config);
-    };
-};
+    }
+}
 
 function setButtonState(button, isActive, config) {
     if (isActive) {
@@ -24,9 +24,9 @@ function setButtonState(button, isActive, config) {
         button.disabled = false;
     } else {
         button.classList.add(config.inactiveButtonClass);
-        button.disabled = true; 
-    };
-};
+        button.disabled = true;
+    }
+}
 
 function setEventListeners(form, config) {
     const inputsList = form.querySelectorAll(config.inputSelector);
@@ -38,7 +38,7 @@ function setEventListeners(form, config) {
             setButtonState(submitButton, form.checkValidity(), config);
         });
     });
-};
+}
 
 function enableValidation(config) {
     const forms = document.querySelectorAll(config.formSelector);
@@ -52,7 +52,7 @@ function enableValidation(config) {
         const submitButton = form.querySelector(config.submitButtonSelector);
         setButtonState(submitButton, form.checkValidity(), config);
     });
-};
+}
 
 enableValidation({
     formSelector: '.popup__form',

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="page">
     <header class="header">
         <a href="#" target='_self'><img src="./images/logo.svg" alt="Логотип" class="header__logo"></a>
@@ -20,7 +22,7 @@
                 </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            
+
             <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements"></section>
@@ -36,7 +38,7 @@
             <div class="element__decs">
                 <h2 class="element__name"></h2>
                 <button id="like-button" type="button" class="element__like-button"></button>
-            </div>            
+            </div>
         </div>
     </template>
 
@@ -46,32 +48,39 @@
                 <button id="close_profile_edit" type="button" class="popup__close-button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="form" class="form popup__form" novalidate="">
-                    <input type="text" id="form__name" name="form__name" class="form__name popup__input" required="" minlength="2" maxlength="40">
+                    <input type="text" id="form__name" name="form__name" class="form__name popup__input" required=""
+                        minlength="2" maxlength="40">
                     <span id="form__name-error" class="error"></span>
-                    <input type="text" id="form__job" name="form__job" class="form__job popup__input" required="" minlength="2" maxlength="200">
+                    <input type="text" id="form__job" name="form__job" class="form__job popup__input" required=""
+                        minlength="2" maxlength="200">
                     <span id="form__job-error" class="error"></span>
-                    <button type="submit" class="form__button popup__button popup__button_invalid" disabled="">Сохранить</button>
+                    <button type="submit" class="form__button popup__button popup__button_invalid"
+                        disabled="">Сохранить</button>
                 </form>
             </div>
         </div>
-    
+
         <div id="new-element" class="popup">
             <div class="popup__window">
                 <button id="close_new_element" type="button" class="popup__close-button"></button>
                 <h2 class="popup__title">Новое место</h2>
                 <form name="form" id="form__add_item" class="form popup__form" novalidate="">
-                    <input type="text" id="form__title" name="form__title" class="form__title popup__input" placeholder="Название" required="" minlength="2" maxlength="30">
+                    <input type="text" id="form__title" name="form__title" class="form__title popup__input"
+                        placeholder="Название" required="" minlength="2" maxlength="30">
                     <span id="form__title-error" class="error"></span>
-                    <input type="url" id="form__url" name="form__url" class="form__url popup__input" placeholder="Ссылка на картинку" required="">
+                    <input type="url" id="form__url" name="form__url" class="form__url popup__input"
+                        placeholder="Ссылка на картинку" required="">
                     <span id="form__url-error" class="error"></span>
-                    <button id="form__button-add" type="submit" class="form__button popup__button popup__button_invalid" disabled="">Создать</button>
+                    <button id="form__button-add" type="submit" class="form__button popup__button popup__button_invalid"
+                        disabled="">Создать</button>
                 </form>
             </div>
         </div>
-    
+
         <div id="img-full" class="popup">
             <div class="popup__image-full">
-                <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="." class="popup__img">
+                <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="."
+                    class="popup__img">
                 <button id="close_img_full" type="button" class="popup__close-button"></button>
                 <h2 class="popup__title-img"></h2>
             </div>
@@ -82,4 +91,5 @@
     <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
+
 </html>

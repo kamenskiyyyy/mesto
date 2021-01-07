@@ -32,7 +32,7 @@ function setCardEventListeners(item){
     likeButton.addEventListener('click', likeItem);
     const openImageButton = item.querySelector('.element__img-open-full');
     openImageButton.addEventListener('click', openImagePopup);
-};
+}
 
 function composeItem({name, link, alt}){
     const newItem = templateElement.content.cloneNode(true);
@@ -44,12 +44,12 @@ function composeItem({name, link, alt}){
     imgElement.data = name; // необходимо для описания картинки в попапе
     setCardEventListeners(newItem);
     return newItem;
-};
+}
 
 function renderElements() {
     const elementCard = initialCards.map(composeItem);
     elementsConteiner.append(...elementCard);
-};
+}
 
 function openPopup(popup) {
     popup.classList.add('popup__view');
@@ -65,19 +65,19 @@ function openPopupEditProfileVisibility(popup) {
     openPopup(popup);
     nameInput.value = profileNameNode.textContent;
     jobInput.value = profileJobNode.textContent;
-};
+}
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileNameNode.textContent = nameInput.value;
     profileJobNode.textContent = jobInput.value;
     closePopup(popupEditNode);
-};
+}
 
 function bindAddItemElement() {
     const addButtonElement = document.querySelector('#form__button-add');
     addButtonElement.addEventListener('click', addNewItem);
-};
+}
 
 function addNewItem(evt) {
     evt.preventDefault();
@@ -88,37 +88,37 @@ function addNewItem(evt) {
     titleInput.value = '';
     urlInput.value = '';
     closePopup(popupNewElementNode);
-};
+}
 
 function removeItem(evt) {
     const targetItem = evt.target.closest('.element');
     targetItem.remove();
-};
+}
 
 function likeItem(evt) {
     const targetItem = evt.target.closest('.element__like-button');
     targetItem.classList.toggle('element__like-button-active');
-};
+}
 
 function openImagePopup(evt) {
     popupImage.src = evt.target.src;
     popupImage.alt = evt.target.alt;
     popupTitle.textContent = evt.target.data;
     openPopup(popupImageNode);
-};
+}
 
 function closePopupClickOvarlay(evt) {
     const closeClick = evt.target;
     if (closeClick.classList.contains('popup')) {
         closePopup(document.querySelector('.popup__view'));
-    };
-};
+    }
+}
 
 function closePopupEsc(evt) {
     if (evt.key === 'Escape') {
         closePopup(document.querySelector('.popup__view'));
-    };
-};
+    }
+}
 
 formNode.addEventListener('submit', handleProfileFormSubmit);
 profileEditButtonNode.addEventListener('click', () => openPopupEditProfileVisibility(popupEditNode));
