@@ -69,6 +69,10 @@ const popupClose = (popup) => {
     closeEsc(evt, popup);
     closeBackground(evt, popup);
   });
+  document.removeEventListener('click', (evt) => {
+    closeEsc(evt, popup);
+    closeBackground(evt, popup);
+  });
 };
 
 // создание карточки

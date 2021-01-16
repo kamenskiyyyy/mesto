@@ -8,8 +8,8 @@ export class Card {
   }
 
   _getTemplate() {
-    const CardElement = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
-    return CardElement;
+    const cardElement = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
+    return cardElement;
   }
 
   _toggleLikeButton(evt) {
@@ -39,6 +39,7 @@ export class Card {
   generateCard() {
     this._card = this._getTemplate();
     this._card.querySelector('.card__image').src = this._link;
+    this._card.querySelector('.card__image').alt = this._name;
     this._card.querySelector('.card__name').textContent = this._name;
     this._setEventListeners();
     return this._card;
