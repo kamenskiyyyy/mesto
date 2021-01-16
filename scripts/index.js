@@ -1,3 +1,7 @@
+import { Card } from './Сard.js';
+import { FormValidator } from './FormValidator.js';
+import { initialCards } from './initialCards.js';
+
 const popupEdit = document.querySelector('.popup_type_edit');
 const editForm = popupEdit.querySelector('.popup__form');
 const editButton = document.querySelector('.button_type_edit');
@@ -12,6 +16,7 @@ const newCardName = popupAdd.querySelector('.popup__input_type_place-name');
 const newCardLink = popupAdd.querySelector('.popup__input_type_link');
 const addButton = document.querySelector('.button_type_add');
 const cardList = document.querySelector('.cards-list');
+
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -23,9 +28,6 @@ const validationConfig = {
 
 const editFormValidation = new FormValidator(validationConfig, editForm, true);
 const addFormValidation = new FormValidator(validationConfig, addForm, true);
-
-import { Card } from './Сard.js';
-import { FormValidator } from './Validate.js';
 
 // открытие popup и добавление слушателей
 export const popupOpen = (popup) => {
@@ -108,5 +110,5 @@ popupAdd.addEventListener('submit', addNewCard);
 
 // рендер начальных карточек
 initialCards.forEach((item) => {
-  addCard(cardList, createCard(item.name, item.link))
+  addCard(cardList, createCard(item.name, item.link));
 });
