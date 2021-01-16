@@ -38,7 +38,7 @@ export class FormValidator {
     button.classList.add(config.inactiveButtonClass);
   }
 
-  _enableButton(button, config) {
+  _enableButton = (button, config) => {
     button.classList.remove(config.inactiveButtonClass);
   }
 

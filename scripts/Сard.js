@@ -16,12 +16,12 @@ export class Card {
     evt.target.classList.toggle('button_type_like-black');
   }
 
-  _deleteCard() {
+  _deleteCard = () => {
     this._card.remove();
     this._card = null;
   }
 
-  _openPrewiew() {
+  _openPrewiew = () => {
     const popupImageFig = popupImage.querySelector('.popup__fig-image');
     const popupImageCaption = popupImage.querySelector('.popup__fig-caption');
     popupImageFig.src = this._link;
