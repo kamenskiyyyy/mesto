@@ -114,4 +114,3 @@ popupAdd.addEventListener('submit', addNewCard);
 initialCards.forEach((item) => {
   addCard(cardList, createCard(item.name, item.link));
 });
-кен
