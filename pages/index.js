@@ -66,7 +66,7 @@ addButton.addEventListener('click', openPopupAddCard);
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit', {
   handleFormSubmit: (item) => {
-    console.log(item)
+    console.log(item);
     userData.setUserInfo({
       userName: item.name,
       userFeature: item.feature,
