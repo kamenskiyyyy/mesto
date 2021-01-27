@@ -56,7 +56,6 @@ const popupAddCard = new PopupWithForm('.popup_type_add', {
     cardsArray.addItem(cardElement);
   },
 });
-popupAddCard.setEventListeners();
 
 function openPopupAddCard() {
   popupAddCard.open();
