@@ -3,7 +3,7 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -15,7 +15,7 @@ export default class Card {
     evt.target.classList.toggle('button_type_like-black');
   }
 
-  _deleteCard() {
+  _deleteCard = () => {
     this._card.remove();
     this._card = null;
   }

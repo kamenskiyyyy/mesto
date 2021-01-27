@@ -18,7 +18,7 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 
-const imagePopup = new PopupWithImage('.popup_type_image');
+const imagePopup = new PopupWithImage('.popup_type_image')
 const userData = new UserInfo('.profile__name', '.profile__feature');
 
 const editFormValidation = new FormValidator(validationConfig, editForm);
@@ -83,4 +83,4 @@ function openPopupEditProfile() {
   popupEditProfile.open();
 }
 
-editButton.addEventListener('click', openPopupEditProfile);
+editButton.addEventListener('click', openPopupEditProfile)
