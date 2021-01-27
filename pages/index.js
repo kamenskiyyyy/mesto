@@ -1,12 +1,8 @@
-console.log('Hello, World!')
-
-import { Card } from './Сard.js';
-import { FormValidator } from './FormValidator.js';
-import { initialCards } from './initialCards.js';
+import { Card } from '../components/Сard.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { initialCards } from './utils/constants.js';
 
 import './pages/index.css';
-
-
 
 const editFormValidation = new FormValidator(validationConfig, editForm, true);
 const addFormValidation = new FormValidator(validationConfig, addForm, true);
