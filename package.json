@@ -1,17 +1,17 @@
 {
   "name": "mesto",
   "version": "1.0.0",
-  "description": "",
+  "description": "- HTML\r - CSS\r - JS",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamenskiyyyy/mesto.git"
   },
-  "author": "",
+  "author": "Nikolay Kamenev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kamenskiyyyy/mesto/issues"
