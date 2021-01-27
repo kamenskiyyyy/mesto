@@ -32,7 +32,7 @@ function createCard(item) {
     handleCardClick: () => {
       const data = {};
       data.src = item.link;
-      data.textContent = item.title;
+      data.textContent = item.name;
       imagePopup.open(data);
     }
   }).generateCard();
@@ -56,6 +56,7 @@ const popupAddCard = new PopupWithForm('.popup_type_add', {
     cardsArray.addItem(cardElement);
   },
 });
+popupAddCard.setEventListeners();
 
 function openPopupAddCard() {
   popupAddCard.open();
@@ -83,4 +84,4 @@ function openPopupEditProfile() {
   popupEditProfile.open();
 }
 
-editButton.addEventListener('click', openPopupEditProfile)
+editButton.addEventListener('click', openPopupEditProfile);
