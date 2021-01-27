@@ -1,6 +1,6 @@
 import { popupImage, popupOpen } from './index.js';
 
-export class Card {
+export default class Card {
   constructor(name, link, cardSelector) {
     this._name = name;
     this._link = link;
@@ -16,7 +16,7 @@ export class Card {
     evt.target.classList.toggle('button_type_like-black');
   }
 
-  _deleteCard = () => {
+  _deleteCard = () => {}
     this._card.remove();
     this._card = null;
   }
