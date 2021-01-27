@@ -13,12 +13,12 @@ import {
 }
 from '../utils/constants.js';
 
-import Card from '../components/Сard.js';
-import { FormValidator } from '../components/Validate.js';
-import Section from '../components/Section.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-import UserInfo from '../components/UserInfo.js';
+import Card from '../../components/Сard.js';
+import { FormValidator } from '../../components/Validate.js';
+import Section from '../../components/Section.js';
+import PopupWithImage from '../../components/PopupWithImage.js';
+import PopupWithForm from '../../components/PopupWithForm.js';
+import UserInfo from '../../components/UserInfo.js';
 
 const imagePopup = new PopupWithImage('.popup_type_image');
 const userData = new UserInfo('.profile__name', '.profile__feature');
