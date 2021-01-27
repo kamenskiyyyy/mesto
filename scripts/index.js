@@ -1,30 +1,12 @@
+console.log('Hello, World!')
+
 import { Card } from './Сard.js';
 import { FormValidator } from './FormValidator.js';
 import { initialCards } from './initialCards.js';
 
-const popupEdit = document.querySelector('.popup_type_edit');
-const editForm = popupEdit.querySelector('.popup__form');
-const editButton = document.querySelector('.button_type_edit');
-const userName = document.querySelector('.profile__name');
-const userFeature = document.querySelector('.profile__feature');
-const inputName = popupEdit.querySelector('.popup__input_type_name');
-const inputFeature = popupEdit.querySelector('.popup__input_type_feature');
-export const popupImage = document.querySelector('.popup_type_image');
-const popupAdd = document.querySelector('.popup_type_add');
-const addForm = popupAdd.querySelector('.popup__form');
-const newCardName = popupAdd.querySelector('.popup__input_type_place-name');
-const newCardLink = popupAdd.querySelector('.popup__input_type_link');
-const addButton = document.querySelector('.button_type_add');
-const cardList = document.querySelector('.cards-list');
+import './pages/index.css';
 
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.button_type_submit',
-  inactiveButtonClass: 'button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error'
-};
+
 
 const editFormValidation = new FormValidator(validationConfig, editForm, true);
 const addFormValidation = new FormValidator(validationConfig, addForm, true);
