@@ -15,37 +15,3 @@ export const validationConfig = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: '.popup__error'
 };
-
-import Arhuz from '../images/arkhyz.jpg';
-import Chelubinsk from '../images/chelyabinsk-oblast.jpg';
-import Ivanovo from '../images/ivanovo.jpg';
-import Kamchatka from '../images/kamchatka.jpg';
-import Holmogorskii from '../images/kholmogorsky-rayon.jpg';
-import Baikal from '../images/baikal.jpg';
-
-export const initialCards = [
-    {
-        name: 'Архыз',
-        link: Arhuz
-    },
-    {
-        name: 'Челябинская область',
-        link: Chelubinsk
-    },
-    {
-        name: 'Иваново',
-        link: Ivanovo
-    },
-    {
-        name: 'Камчатка',
-        link: Kamchatka
-    },
-    {
-        name: 'Холмогорский район',
-        link: Holmogorskii
-    },
-    {
-        name: 'Байкал',
-        link: Baikal
-    }
-];
