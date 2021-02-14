@@ -22,13 +22,13 @@ export default class Card {
     this._setLike(data);
   }
 
-  removeLikeCard(data) {
+  _removeLikeCard(data) {
     this._likeButton.classList.remove('button_type_like-black');
     this._delLike(data);
   }
 
-  setLike(data) {
-    this._likes.textContent = data.likes.lenght;
+  setLikes(data) {
+    this._likes.textContent = data.likes.length;
   }
 
   remove() {
@@ -64,21 +64,21 @@ export default class Card {
     if (!this._checkOwner()) {
       this._deleteButton.classList.add('button_hidden');
     }
-    this.setLike(this.data);
+    this.setLikes(this._data);
     this._checkLikeOwner();
     this._setEventListeners();
     return this._card;
   }
 
   _setEventListeners() {
-    this._likeButton.addElentListener('click', () => {
+    this._likeButton.addEventListener('click', () => {
       if (this._likeButton.classList.contains('button_type_like-black')) {
         this._removeLikeCard(this._data);
       } else {
         this._likeCard(this._data);
       }
     });
-    this._deleteButton.addElentListener('click', () => { this._handleDelClick(this._data) });
-    this._cardImage.addElentListener('click', () => { this._handleCardClick(this._data) });
+    this._deleteButton.addEventListener('click', () => { this._handleDelClick(this._data) });
+    this._cardImage.addEventListener('click', () => { this._handleCardClick(this._data) });
   }
 }

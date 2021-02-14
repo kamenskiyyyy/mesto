@@ -19,7 +19,7 @@ import PopupWithImage from '../components/PopupWithImage';
 import PopupWithForm from '../components/PopupWithForm';
 import UserInfo from '../components/UserInfo';
 import Api from '../components/Api';
-import PopupWithConfirm from '../components/PopupWidthConfirm';
+import PopupWithConfirm from '../components/PopupWithConfirm';
 
 const imagePopup = new PopupWithImage('.popup_type_image');
 const userData = new UserInfo('.profile__name', '.profile__feature', '.profile__photo');
@@ -39,28 +39,28 @@ const popupDelConfirm = new PopupWithConfirm('.popup_type_submit', {
       .then(() => {
         tempCard.remove();
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
 });
 
 const popupEditAvatar = new PopupWithForm('.popup_type_edit-avatar', {
-  handleFormSubmit: data => {
+  handleFormSubmit: (data) => {
     popupEditAvatar.checkDownload(false);
     api.setAvatar(data)
-      .then(() => {
-        userData.setUserAvatar(data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .finally(() => {
-        popupEditAvatar.close();
-        popupEditAvatar.checkDownload(true);
-      });
+    .then(() => {
+      userData.setUserAvatar(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      popupEditAvatar.close();
+      popupEditAvatar.checkDownload(true);
+    });
   }
-})
+});
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20/',
@@ -74,14 +74,14 @@ let myId = '';
 let tempCard = '';
 
 api.getInitialData()
-  .then(res => {
+  .then((res) => {
     const [user, cards] = res;
     myId = user._id;
     userData.setUserInfo(user);
     userData.setUserAvatar(user);
     cardsArray.renderItems(cards);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });
 
@@ -95,24 +95,24 @@ function createCard(item) {
       tempCard = card;
     },
     setLike: (item) => {
-        api.setLike(item)
-          .then(item => {
-            card.setLikes(item);
-          })
-          .catch(err => {
-            console.log(err);
-          });
+      api.setLike(item)
+        .then((item) => {
+          card.setLikes(item);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     delLike: (item) => {
-      api.delCard(item)
-        .then(item => {
-          card.setLikes(teim);
+      api.delLike(item)
+        .then((item) => {
+          card.setLikes(item);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     }
-  })
+  });
   return card;
 }
 
@@ -124,24 +124,22 @@ const cardsArray = new Section({
   }
 }, '.cards-list');
 
-///////////////////////////////////////////////////////
-
 const popupAddCard = new PopupWithForm('.popup_type_add', {
   handleFormSubmit: (item) => {
     popupAddCard.checkDownload(false);
     api.setNewCard(item)
-      .then(res => {
+      .then((res) => {
         const card = createCard(res);
         const cardElement = card.generateCard();
         cardsArray.addItem(cardElement);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       })
       .finally(() => {
         popupAddCard.close();
         popupAddCard.checkDownload(true);
-      })
+      });
   },
 });
 
@@ -150,22 +148,20 @@ function openPopupAddCard() {
   addFormValidation.checkValidity();
 }
 
-/////////////////////////////////////////////////////
-
 const popupEditProfile = new PopupWithForm('.popup_type_edit', {
   handleFormSubmit: (item) => {
     popupEditProfile.checkDownload(false);
     api.setUserInfo(item)
-      .then(res => {
+      .then((res) => {
         userData.setUserInfo(res);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       })
       .finally(() => {
         popupEditProfile.close();
         popupEditProfile.checkDownload(true);
-      })
+      });
   }
 });
 

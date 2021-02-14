@@ -16,7 +16,7 @@ export class FormValidator {
     const error = this._checkingForm.querySelector(`#${input.id}-error`);
     error.textContent = '';
     input.classList.remove(this._config.inputErrorClass);
-  }
+  };
 
   _checkInputValidity = (input) => {
     input.setCustomValidity('');
@@ -24,14 +24,14 @@ export class FormValidator {
       this._showError(input);
     } else {
       this._hideError(input);
-    };
-  }
+    }
+  };
 
   _hasInvalidInput = () => {
     return this._inputsList.some((input) => {
       return !input.validity.valid;
     });
-  }
+  };
 
   _setButtonState = () => {
     if (this._hasInvalidInput(this._inputsList)) {
@@ -39,24 +39,22 @@ export class FormValidator {
     } else {
       this._enableButton();
     }
-  }
+  };
 
   _disableButton = () => {
-    this._submitButton.disabled = true;
     this._submitButton.classList.add(this._config.inactiveButtonClass);
-  }
+  };
 
   _enableButton = () => {
-    this._submitButton.disabled = false;
     this._submitButton.classList.remove(this._config.inactiveButtonClass);
-  }
+  };
 
   checkValidity = () => {
     this._disableButton();
     this._inputsList.forEach(input => {
       this._hideError(input);
     });
-  }
+  };
 
   _setEventListeners = () => {
     this._checkingForm.addEventListener("submit", (evt) => {
@@ -68,7 +66,7 @@ export class FormValidator {
         this._setButtonState();
       });
     });
-  }
+  };
 
   enableValidation = () => {
     this._setEventListeners();
