@@ -25,12 +25,15 @@
 @import url('../blocks/button/_type/button_type_delete.css');
 @import url('../blocks/button/_disabled/button_disabled.css');
 
+@import url('../blocks/button/_hidden/button_hidden.css');
 @import url('../blocks/cards-list/cards-list.css');
 @import url('../blocks/card/card.css');
 @import url('../blocks/card/__image/card__image.css');
 @import url('../blocks/card/__description/card__description.css');
 @import url('../blocks/card/__name/card__name.css');
 
+@import url('../blocks/card/__likes/card__likes.css');
+@import url('../blocks/card/__like-counter/card__like-counter.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 
